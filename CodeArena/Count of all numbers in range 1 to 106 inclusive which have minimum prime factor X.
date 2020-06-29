@@ -1,0 +1,43 @@
+
+
+# Count of all numbers in range 1 to 10**6 inclusive which have minimum prime factor X.
+
+
+MAX = 1000000
+Prime = [0 for i in range(MAX + 4)] 
+count = [0 for i in range(MAX + 4)] 
+def form_sieve(): 
+      
+    
+    Prime[1] = 1
+  
+    
+    for i in range(2, MAX + 1): 
+  
+        
+        if Prime[i] == 0: 
+            for j in range(i * 2, MAX + 1, i): 
+  
+               
+                if Prime[j] == 0: 
+  
+                  
+                        Prime[j] = 1
+  
+                    
+                        count[i] += 1
+
+form_sieve()  
+
+T=int(input())
+for i in range(T):
+    n=int(input()) 
+    print(count[n] + 1) 
+    
+    
+    
+    '''Input: n = 2
+       Output: 500000
+
+       Input: n = 3
+       Output: 166667'''
